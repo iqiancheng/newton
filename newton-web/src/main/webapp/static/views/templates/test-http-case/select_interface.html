@@ -1,0 +1,71 @@
+<div class="modal-header">
+    <h3 class="modal-title">{{title}}</h3>
+</div>
+<div class="modal-body">
+    <div>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-1 control-label">请求url</label>
+                <div class="col-sm-3 row">
+                    <input type="text" class="form-control" ng-model="url"
+                           placeholder="http://www.qianworks.com?s=iPhone">
+                </div>
+                <label class="col-sm-1 control-label">请求类型</label>
+                <div class="col-sm-1 row">
+                    <select class="form-control"
+                            ng-model="requestType"
+                            ng-disabled="disabled"
+                            ng-options="type for type in typeList">
+                    </select>
+                </div>
+                <label class="col-sm-1 control-label"></label>
+                <button class="btn btn-primary" ng-click="search()">查询</button>
+            </div>
+        </form>
+    </div>
+
+    <div>
+        <table class="table table-hover">
+            <thead>
+            <tr class="smallfont">
+                <th>序号</th>
+                <th>请求url</th>
+                <th>请求类型</th>
+                <th>参数</th>
+                <th>IP</th>
+                <th>JMX端口</th>
+                <th>创建人</th>
+                <th>修改人</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="testHttpCase in list">
+                <th ng-bind="$index+1"></th>
+                <th ng-bind="testHttpCase.url"></th>
+                <th ng-bind="testHttpCase.requestType"></th>
+                <th ng-bind="testHttpCase.parameters"></th>
+                <th ng-bind="testHttpCase.host"></th>
+                <th ng-bind="testHttpCase.jmxPort"></th>
+                <th ng-bind="testHttpCase.creator"></th>
+                <th ng-bind="testHttpCase.lastUpdater"></th>
+                <th>
+                    <a class="btn btn-info buttonfont" ng-click="select(testHttpCase)">选择</a>
+                </th>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="ui-pagination">
+        <uib-pagination boundary-links="true" first-text="首页" last-text="末页" previous-text="上一页" next-text="下一页"
+                        total-items="totalItems"
+                        ng-model="currentPage" max-size="10" items-per-page="pageSize"
+                        class="pagination-sm" boundary-link-numbers="true" rotate="false">
+        </uib-pagination>
+    </div>
+</div>
+<div class="modal-footer">
+    <div style="margin-top: 50px;">
+        <button class="btn btn-warning" type="button" ng-click="cancel()">取消</button>
+    </div>
+</div>

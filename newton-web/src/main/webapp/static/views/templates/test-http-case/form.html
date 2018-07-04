@@ -1,0 +1,88 @@
+<div class="panel panel-default">
+    <div class="panel-heading" ng-model="panelName">{{ panelName }}</div>
+    <div class="panel-body" style="height: 700px">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">请求url:</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" ng-model="testHttpCase.url"
+                           placeholder="请选择http请求接口" ng-disabled="true">
+                </div>
+                <button type="button" class="btn btn-primary btn-sm buttonfont"
+                        ng-click="showInterfaceWindow()"
+                        ng-controller="TestHttpCaseSelectInterfaceController">选择Http接口
+                </button>
+                <input type="text" class="form-control" ng-model="testHttpCase.interfaceId" ng-hide="true"><!-- 隐藏提交 -->
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">请求类型:</label>
+                <div class="col-sm-5">
+                    <select class="form-control"
+                            ng-model="testHttpCase.requestType"
+                            ng-disabled="true"
+                            ng-options="type for type in typeList">
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">参数:</label>
+                <div class="col-sm-5">
+                    <textarea class="form-control" placeholder="参数" rows="10"
+                              ng-model="testHttpCase.parameters" ng-disabled="true"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">IP:</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" ng-model="testHttpCase.host" ng-disabled="true">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">JMX端口:</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" ng-model="testHttpCase.jmxPort" ng-disabled="true">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">客户端数量:</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" ng-model="testHttpCase.clientCount" placeholder="客户端数量">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">发送消息数:</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" ng-model="testHttpCase.messageCount" placeholder="发送消息数">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">连接超时时间:</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" ng-model="testHttpCase.connectionTimeout"
+                           placeholder="连接超时时间">
+                </div>
+                <div>ms</div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">请求超时时间:</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" ng-model="testHttpCase.requestTimeout" placeholder="请求超时时间">
+                </div>
+                <div>ms</div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label"></label>
+                <div class="col-sm-5">
+                    <button type="button" class="btn btn-primary navbar-btn" ng-click="submit()" ng-model="btnSure">{{
+                        btnSure }}
+                    </button>
+                    <button type="button" class="btn btn-danger navbar-btn" ng-click="cancel()" ng-model="btnCancel">{{
+                        btnCancel }}
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,76 @@
+<div class="query-body">
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-1 control-label">请求url</label>
+            <div class="col-sm-3 row">
+                <input type="text" class="form-control" ng-model="url" placeholder="http://www.qianworks.com?s=iPhone">
+            </div>
+            <label class="col-sm-1 control-label">请求类型</label>
+            <div class="col-sm-1 row">
+                <select class="form-control"
+                        ng-model="requestType"
+                        ng-disabled="disabled"
+                        ng-options="type for type in typeList">
+                </select>
+            </div>
+            <label class="col-sm-1 control-label"></label>
+            <button class="btn btn-primary" ng-click="search()">查询</button>
+        </div>
+    </form>
+</div>
+
+<div>
+    <div class="col-sm-2 row">
+        <button type="button" class="btn btn-primary" ng-click="gotoAdd()">新增</button>
+    </div>
+    <table class="table table-hover">
+        <thead>
+        <tr class="smallfont">
+            <th>序号</th>
+            <th>请求url</th>
+            <th>请求类型</th>
+            <th>IP</th>
+            <th>JMX端口</th>
+            <th>客户端连接数</th>
+            <th>发送请求数</th>
+            <th>连接超时时间</th>
+            <th>请求超时时间</th>
+            <th>创建人</th>
+            <th>最后修改人</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="record in list">
+            <th ng-bind="$index+1"></th>
+            <th ng-bind="record.url"></th>
+            <th ng-bind="record.requestType"></th>
+            <th ng-bind="record.host"></th>
+            <th ng-bind="record.jmxPort"></th>
+            <th ng-bind="record.clientCount"></th>
+            <th ng-bind="record.messageCount"></th>
+            <th ng-bind="record.connectionTimeout"></th>
+            <th ng-bind="record.requestTimeout"></th>
+            <th ng-bind="record.creator"></th>
+            <th ng-bind="record.lastUpdater"></th>
+            <th>
+                <a class="btn btn-warning buttonfont" ng-click="update(record.id)">编辑</a>
+                <a class="btn btn-danger buttonfont" ng-click="del(record.id)">删除</a>
+                <a class="btn btn-info buttonfont" ng-if="record.runState != 1" ng-click="run(record.id,record)">执行</a>
+                <a class="btn btn-info buttonfont" ng-if="record.runState == 1" ng-disabled="true">运行中</a>
+                <a class="btn btn-success buttonfont"
+                   ng-click="result(record.id, record.url, record.requestType, record.clientCount, record.messageCount)">查看结果</a>
+            </th>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="ui-pagination">
+    <uib-pagination boundary-links="true" first-text="首页" last-text="末页" previous-text="上一页" next-text="下一页"
+                    total-items="totalItems"
+                    ng-model="currentPage" max-size="10" items-per-page="pageSize"
+                    class="pagination-sm" boundary-link-numbers="true" rotate="false">
+    </uib-pagination>
+</div>
+</div>

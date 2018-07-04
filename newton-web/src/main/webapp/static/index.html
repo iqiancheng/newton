@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-cn" ng-app="app">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <title>性能测试系统</title>
+    <base href="/" />
+    <link href="lib/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="res/css/style.css" rel="stylesheet"/>
+    <link href="lib/ztree/3.5.21/css/zTreeStyle.css" rel="stylesheet"/>
+    <link href="lib/jsoneditor/css/jsoneditor.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="static/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="res/oa_css/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="res/oa_css/global.css" type="text/css"/>
+    <link rel="stylesheet" href="res/oa_css/style.css" type="text/css"/>
+    <link rel="stylesheet" href="lib/object-table/0.2.2/css/object-table-style.css" type="text/css">
+    <style type="text/css">
+    	.smallfont th {
+    		font-size : 12px;
+    	}
+    	.buttonfont {
+    		font-size : 14px;
+    	}
+    	thead th {
+    		font-weight:bold;
+    	}
+    	th {
+    		text-align:center
+    	}
+    	tr {
+    		text-align:center
+    	}
+    	.stress-dialog .modal-dialog {
+		    width :80%;
+		    min-width: 800px;
+		}
+    </style>
+</head>
+<body>
+<div  ng-controller='ShowController'>
+<header>
+    <!-- 新header -->
+    <div class="head-top clearfix">
+        <div class="pull-left">
+            <a href="#" class="head-logo"></a>
+            <span class="logo-text">性能测试系统</span>
+        </div>
+			<span class="pull-right c-top-info"> 您好！{{user}} |
+			<a class="c-t-a" target="_blank" href="http://oa.qianworks.com/user/modify_pwd.html">修改密码</a>
+				|
+			<a class="c-t-a" href="http://oa.qianworks.com/user/logout.html">退出</a>
+			</span>
+    </div>
+    <nav class="head-nav">
+        <ul class="clearfix">
+
+            <div class="parent" ng-click="toggleMenu()">
+                <li id="search" ng-click="loadMenu()">
+                    <a href="/" class="js-list">性能测试系统</a>
+                </li>
+            </div>
+            
+        </ul>
+    </nav>
+
+
+</header>
+<div class="main">
+    <div class="view-progress small" ng-show="showProgress"><uib-progressbar value="progressValue" style="height: 1px;"></uib-progressbar></div>
+    <div class="main-body">
+        <div class="app" ng-view></div>
+    </div>
+</div>
+    <li style="list-style-type:none;" class="auto">
+        <span class="Darrow"></span>
+
+        <div class="side-bar"/>
+            <div class="children" ng-show='menuState.show'>
+                <dl>
+                    <dt><span class="arrow"></span></dt>
+                    <ul ng-repeat="record in gridData">
+                        <dd><li  ng-class="{on:path== record.key}"><a di-href="{{record.key}}" href="{{record.key}}">{{record.value}}</a></li></dd>
+                    </ul>
+                </dl>
+            </div>
+        </div>
+    </li>
+    <script src="lib/angularjs/1.4.8/angular.min.js"></script>
+    <script>
+            var myApp=angular.module('toggle',[]);
+
+            myApp.controller('ShowController', ['$http','$scope',function($http, $scope) {
+
+                $scope.menuState = {
+                    show: true
+                };
+
+                $scope.toggleMenu = function() {
+
+                };
+
+                $scope.loadMenu = function(){
+                	$http.get('auth/menu/')
+	                    .success(function(data) {
+	                        if (data.data.name == "") {
+	                            window.location.href = "http://oa.qianworks.com/?url=" + $location.absUrl();
+	                        }
+	
+	                        $scope.gridData = data.data.menu;
+	                        $scope.user = data.data.name;
+	                    })
+	                    .error(function(data) {
+	                        window.location.href = "http://oa.qianworks.com/?url=" + $location.absUrl();
+	                    })
+                }
+            }]);
+    </script>
+</div>
+
+<!-- jQuery -->
+<script src="static/vendor/jquery/jquery.min.js"></script>
+
+<!--<script src="lib/angularjs/1.4.8/angular.min.js"></script>-->
+<script src="lib/angularjs/1.4.8/angular-route.min.js"></script>
+<script src="lib/angular-ui/1.0.3/ui-bootstrap-tpls.min.js"></script>
+<script src="lib/ztree/3.5.21/js/jquery.ztree.all.min.js"></script>
+<script src="/lib/jsoneditor/js/jsoneditor.min.js"></script>
+<script src="/lib/jsoneditor/js/ng-jsoneditor.js"></script>
+<script src="lib/jquery/ajaxfileupload.js"></script>
+<script src="lib/object-table/0.2.2/js/object-table.js" type="text/javascript"></script>
+<script src="lib/echarts/3.1.5/echarts.min.js"></script>
+
+<script src="res/js/app.js"></script>
+<script src="res/js/service.js"></script>
+<script src="res/js/common/alert-window.js"></script>
+<script src="res/js/common/confirm-window.js"></script>
+
+<script src="res/js/controller/test-http/test-http.js"></script>
+<script src="res/js/controller/test-interface/test-interface.js"></script>
+<script src="res/js/controller/test-interface-case/test-interface-case.js"></script>
+<script src="res/js/controller/test-http-case/test-http-case.js"></script>
+<script src="res/js/controller/test-result/test-result.js"></script>
+<script src="res/js/controller/test-http-result/test-http-result.js"></script>
+<script src="res/js/controller/test-report/test-report.js"></script>
+<script src="res/js/controller/test-http-report/test-http-report.js"></script>
+</body>
+</html>

@@ -1,0 +1,574 @@
+/* 防止用户自定义背景颜色对网页的影响，添加让用户可以自定义字体 */
+html {
+  color: #5f5f5f;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+/* 内外边距通常让各个浏览器样式的表现位置不同 */
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+}
+/* 重设 HTML5 标签, IE 需要在 js 中 createElement(TAG) */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+/* HTML5 媒体文件跟 img 保持一致 */
+audio,
+canvas,
+video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+/* 要注意表单元素并不继承父级 font 的问题 */
+body,
+button,
+input,
+select,
+textarea,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: tahoma, arial, "Hiragino Sans GB", "Microsoft YaHei";
+}
+input,
+select,
+textarea {
+  font-size: 100%;
+}
+/* 去掉各Table  cell 的边距并让其边重合 */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* IE bug fixed: th 不继承 text-align*/
+th {
+  text-align: inherit;
+}
+/* 去除默认边框 */
+fieldset,
+img {
+  border: 0;
+}
+/* ie6 7 8(q) bug 显示为行内表现 */
+iframe {
+  display: block;
+}
+/* 去掉 firefox 下此元素的边框 */
+abbr,
+acronym {
+  border: 0;
+  font-variant: normal;
+}
+/* 一致的 del 样式 */
+del {
+  text-decoration: line-through;
+}
+address,
+caption,
+cite,
+code,
+dfn,
+em,
+th,
+var {
+  font-style: normal;
+  font-weight: 500;
+}
+/* 去掉列表前的标识, li 会继承 */
+ol,
+ul {
+  list-style: none;
+}
+/* 对齐是排版最重要的因素, 别让什么都居中 */
+caption,
+th {
+  text-align: left;
+}
+/* 来自yahoo, 让标题都自定义, 适应多个系统应用 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: 500;
+}
+q:before,
+q:after {
+  content: '';
+}
+/* 统一上标和下标 */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sup {
+  top: -0.5em;
+}
+sub {
+  bottom: -0.25em;
+}
+/* 正常链接 未访问
+a:link {
+    color: #4a9df4;
+} */
+/* 鼠标悬停 */
+a:hover {
+  color: #4a9df4;
+  text-decoration: underline;
+}
+/* 默认不显示下划线，保持页面简洁 */
+ins,
+a {
+  text-decoration: none;
+}
+/* 清理浮动 */
+.fn-clear:after,
+.clear:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+.fn-clear,
+.clear {
+  zoom: 1;
+  /* for IE6 IE7 */
+}
+/* 隐藏, 通常用来与 JS 配合 */
+body .fn-hide,
+body .hide {
+  display: none;
+}
+/* 设置内联, 减少浮动带来的bug */
+.fn-left,
+.fn-right {
+  display: inline;
+}
+.fn-left {
+  float: left;
+}
+.fn-right {
+  float: right;
+}
+.fn-out-body {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+/* 单行文字溢出时出现省略号，需设定宽度 */
+.fn-text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.fn-vhidden {
+  visibility: hidden;
+}
+.fn-rmb {
+  font-family: arial;
+  font-style: normal;
+  margin-right: 3px;
+}
+.fn-text-right {
+  text-align: right;
+}
+.fn-text-center {
+  text-align: center;
+}
+.fn-pr {
+  position: relative;
+}
+.fn-st {
+  font-family: "宋体";
+}
+.c-top {
+  padding: 22px 18px;
+  border-bottom: 1px solid #e3e3e3;
+}
+.c-top .c-logo {
+  border-right: 1px solid #ddd;
+  display: inline-block;
+  vertical-align: text-bottom;
+  margin-right: 17px;
+}
+.c-top .c-logo-text {
+  font-size: 20px;
+}
+.c-top .c-top-info {
+  padding-top: 23px;
+  font-size: 14px;
+}
+.c-top .c-top-info .c-t-a {
+  color: #6e6e6e;
+}
+.c-top .c-top-info .c-t-a:link {
+  color: #4a9df4;
+}
+.c-top .c-top-info .c-t-a:visited {
+  color: #4a9df4;
+}
+.c-top .c-top-info .c-t-a:hover {
+  color: #4a9df4;
+}
+.c-top .c-top-info .c-t-a:active {
+  color: #4a9df4;
+}
+.side-bar {
+  float: left;
+  border-right: 1px solid #e3e3e3;
+  margin-bottom: -10000px;
+  padding-bottom: 10000px;
+  overflow: hidden;
+  width: 163px;
+  margin-left: -100%;
+}
+.side-bar li {
+  height: 50px;
+  width: 163px;
+  border-bottom: 1px dashed #eee;
+  text-align: center;
+}
+.side-bar li a {
+  color: #666;
+  font-size: 17px;
+  height: 51px;
+  line-height: 50px;
+  display: block;
+  text-decoration: none;
+  margin-top: -1px;
+}
+.side-bar li a:hover {
+  background-color: #4a9df4;
+  color: #fff;
+}
+.side-bar .on a {
+  background-color: #4a9df4;
+  color: #fff;
+}
+.main {
+  width: 100%;
+  float: left;
+}
+.main .view-progress {
+  margin-left: 163px;
+}
+.main .main-body {
+  margin-left: 163px;
+  padding: 33px 45px;
+}
+
+.main .main-body .version-title {
+  font-size: 20px;
+  color: #333;
+  border-bottom: 1px solid #e3e3e3;
+  padding-bottom: 10px;
+}
+.main .main-body .version-title span {
+  font-weight: bold;
+}
+.main .main-body .version-title em {
+  font-size: 14px;
+  margin-left: 5px;
+}
+.main .main-body .version-title a {
+  color: #4a9df4;
+  font-size: 14px;
+  display: inline-block;
+  margin-top: 8px;
+}
+.main .main-info {
+  padding-top: 30px;
+}
+.main .main-info .m-search {
+  background-color: #f8f8f8;
+  padding: 30px 20px;
+  color: #6e6e6e;
+}
+.main .main-info .m-search .control-label {
+  width: 120px;
+}
+.main .main-info .m-search .btn {
+  padding: 4px 16px;
+}
+.main .version-list {
+  padding-top: 30px;
+}
+.main .version-list table {
+  width: 100%;
+  font-size: 14px;
+  text-align: center;
+}
+.main .version-list th {
+  background-color: #f8f8f8;
+  text-align: center;
+}
+.main .version-list th,
+.main .version-list td {
+  height: 50px;
+}
+.main .version-list td {
+  border-top: 1px solid #e3e3e3;
+}
+.main .version-list td a {
+  margin-right: 5px;
+}
+.main .version-list .pagination {
+  margin: 0;
+}
+.main .version-list .ui-page {
+  padding: 20px 0;
+}
+.main .operation h2 {
+  font-size: 16px;
+  color: #333;
+  padding: 10px 0;
+}
+.main .operation .text-area {
+  height: 300px;
+}
+/* form */
+.main-info .control-label {
+  font-size: 14px;
+  padding-right: 0;
+}
+a.btn-primary {
+  color: #fff;
+}
+.pub-line {
+  margin-top: 25px;
+}
+.bread-crumb {
+  font-size: 12px;
+  padding: 15px 0;
+  border-bottom: 1px solid #e3e3e3;
+  margin-bottom: 15px;
+}
+.bread-crumb .active {
+  color: #777;
+}
+.bread-crumb em {
+  margin: 0 5px;
+}
+.form-horizontal label {
+  font-weight: normal;
+}
+.scroll-list {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.scroll-list table th {
+  white-space: nowrap;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+.scroll-list table th,
+.scroll-list table td {
+  border: 1px solid #e3e3e3;
+}
+/* flex属性 */
+.flex {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+.db {
+  display: -webkit-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.fx1 {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+}
+.vm {
+  display: box;
+  display: -webkit-box;
+  display: -moz-box;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+}
+.query-body {
+  background-color: #f9f9f9;
+  padding: 30px;
+  position: relative;
+  margin-bottom: 40px;
+  box-shadow: 0px 3px 10px -5px #d3d2d2;
+  -webkit-shadow: 0px 3px 10px -5px #d3d2d2;
+}
+.query-body .hide-check {
+  position: absolute;
+  left: -200px;
+  top: -200px;
+  visibility: hidden;
+  opacity: 0;
+}
+.query-body .ui-label {
+  display: inline-block;
+  padding: 0 10px;
+  font-weight: normal;
+  margin: 0;
+  cursor: pointer;
+  text-align: center;
+}
+.query-body .choose-box {
+  border-left: 1px solid #efefef;
+  padding-left: 15px;
+  margin-top: 7px;
+  float: left;
+  margin-right: 15px;
+}
+.query-body .choose-box:first-child {
+  border-left: 0;
+  padding-left: 0;
+}
+.query-body .other-text {
+  float: left;
+  margin: 0 10px;
+  line-height: 32px;
+}
+.query-body .no-border {
+  border: 0;
+}
+.query-body .btn-success {
+  background: #52936b;
+  border-color: #52936b;
+}
+.query-body label {
+  margin-bottom: 9px;
+}
+.query-body input:checked + .ui-label {
+  background-color: #4da773;
+  color: #fff;
+}
+.till {
+  display: inline-block;
+  float: left;
+  line-height: 34px;
+  margin: 0 8px;
+}
+/* 调整间距 */
+.extend-margin {
+  margin: 15px 0;
+}
+.near-margin {
+  margin: 0 15px;
+}
+/* 配置页 */
+.sku-input input {
+  margin: 5px 0;
+}
+.sku-li {
+  position: relative;
+  padding-right: 25px;
+}
+.sku-li .close {
+  position: absolute;
+  right: -2px;
+  top: 8px;
+}
+.sku-box {
+  width: 24%;
+  margin: 0 0.5%;
+}
+.panel-default {
+  margin-bottom: 20px;
+}
+.sku-content {
+  -webkit-flex-flow: row wrap;
+  align-content: stretch;
+}
+.ui-pagination {
+  float:right;
+}
+.query-body {
+    background-color: #f9f9f9;
+    box-shadow: 0 3px 10px -5px #d3d2d2;
+    margin-bottom: 40px;
+    padding: 30px;
+    position: relative;
+}
+.btn-primary {
+    background-color:  #4a9df4;
+    border-color: #3b9bff;
+}
+.ip-box {
+	width:900px; 
+	line-height:180%;
+	display:inline-block;
+}
+.ip-label {
+	margin: 10px;
+	display:inline-block; 
+	width:120px;
+}
+.ip-label div {
+	width:95px;
+	display:inline-block;
+}

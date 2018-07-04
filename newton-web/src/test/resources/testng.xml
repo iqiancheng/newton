@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="TestSuit">
+
+  <test name="service">
+	  <packages>
+		  <package name="com.qianworks.inbiz.perftest.service.*"/>
+	  </packages>
+  </test>
+
+  <test name="controller">
+	  <packages>
+		  <package name="com.qianworks.inbiz.perftest.controller.*"/>
+	  </packages>
+  </test>
+
+  <test name="util">
+	  <packages>
+		  <package name="com.qianworks.inbiz.perftest.util.*"/>
+	  </packages>
+  </test>
+ 
+</suite>

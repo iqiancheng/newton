@@ -1,0 +1,84 @@
+<div class="panel panel-default">
+    <div class="panel-heading" ng-model="panelName">{{ panelName }}</div>
+    <div class="panel-body">
+        <form class="form-horizontal">            
+            <div class="form-group">
+               <label class="col-sm-2 control-label">主机IP:</label>
+               <div class="col-sm-5">
+                    <input type="text" class="form-control"  ng-model="testCase.host" ng-disabled="true">                    
+               </div>
+               <button type="button" class="btn btn-primary btn-sm buttonfont" ng-click="showInterfaceWindow()" ng-controller="TestCaseSelectInterfaceController">选择测试接口</button>                  
+               <input type="text" class="form-control"  ng-model="testCase.interfaceId" ng-hide="true" ><!-- 隐藏提交 -->
+            </div>
+            <div class="form-group">
+               <label class="col-sm-2 control-label">服务端口:</label>
+               <div class="col-sm-5">
+                    <input type="text" class="form-control"  ng-model="testCase.port" ng-disabled="true">                    
+               </div>
+            </div>
+            <div class="form-group">
+               <label class="col-sm-2 control-label">JMX端口:</label>
+               <div class="col-sm-5">
+                    <input type="text" class="form-control"  ng-model="testCase.jmxPort" ng-disabled="true">                    
+               </div>
+            </div>
+            <div class="form-group">
+               <label class="col-sm-2 control-label">服务接口:</label>
+               <div class="col-sm-5">
+                    <input type="text" class="form-control"  ng-model="testCase.interfaceName" ng-disabled="true">                    
+               </div>
+            </div>
+            <div class="form-group">
+               <label class="col-sm-2 control-label">方法名:</label>
+               <div class="col-sm-5">
+                    <input type="text" class="form-control"  ng-model="testCase.methodName" ng-disabled="true">                    
+               </div>
+            </div>
+            <div class="form-group">
+               <label class="col-sm-2 control-label">分组:</label>
+               <div class="col-sm-5">
+                    <input type="text" class="form-control"  ng-model="testCase.groupName" ng-disabled="true">                    
+               </div>
+            </div>
+            <div class="form-group">
+               <label class="col-sm-2 control-label">版本:</label>
+               <div class="col-sm-5">
+                    <input type="text" class="form-control"  ng-model="testCase.version" ng-disabled="true">                    
+               </div>
+            </div>
+            <div class="form-group">
+               <label class="col-sm-2 control-label">客户端数量:</label>
+               <div class="col-sm-5">
+                    <input type="text" class="form-control"  ng-model="testCase.clientCount" placeholder="客户端数量">                    
+               </div>
+            </div>
+            <div class="form-group">
+               <label class="col-sm-2 control-label">发送消息数:</label>
+               <div class="col-sm-5">
+                    <input type="text" class="form-control"  ng-model="testCase.messageCount" placeholder="发送消息数">                    
+               </div>
+            </div>
+            <div class="form-group">
+               <label class="col-sm-2 control-label">连接超时时间:</label>
+               <div class="col-sm-5">
+                    <input type="text" class="form-control"  ng-model="testCase.connectionTimeout" placeholder="连接超时时间">                    
+               </div>
+               <div>ms</div>
+            </div>
+            <div class="form-group">
+               <label class="col-sm-2 control-label">请求超时时间:</label>
+               <div class="col-sm-5">
+                    <input type="text" class="form-control"  ng-model="testCase.requestTimeout" placeholder="请求超时时间">                    
+               </div>
+               <div>ms</div>
+            </div>
+		    <div class="form-group">
+		        <label class="col-sm-4 control-label"></label>
+		        <div class="col-sm-5">
+		            <button type="button" class="btn btn-primary navbar-btn" ng-click="submit()" ng-model="btnSure">{{ btnSure }}</button>
+		            <button type="button" class="btn btn-danger navbar-btn" ng-click="cancel()" ng-model="btnCancel">{{ btnCancel }}</button>
+		        </div>
+		    </div>
+        </form>
+    </div>
+</div>

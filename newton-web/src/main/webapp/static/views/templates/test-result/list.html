@@ -1,0 +1,84 @@
+<div class="query-body">
+    <form class="form-horizontal">
+        <div class="form-group">
+            <div class="panel-heading">
+            	运行结果（
+            		<span ng-model="host">主机IP:  {{host}}</span>
+            		<span style="margin-left:10px;">|</span>
+            		<span style="margin-left:10px;" ng-model="interfaceName">服务接口： {{interfaceName}}</span>
+            		<span style="margin-left:10px;">|</span>
+            		<span style="margin-left:10px;" ng-model="methodName">方法名： {{methodName}}</span>
+            		<span style="margin-left:10px;">|</span>
+            		<span style="margin-left:10px;" ng-model="clientCount">客户端数量： {{clientCount}}</span>
+            		<span style="margin-left:10px;">|</span>
+            		<span style="margin-left:10px;" ng-model="messageCount">消息数量： {{messageCount}}</span>
+            	）
+        	</div>
+<!--             <div class="col-sm-2 row"> -->
+<!--                 <input type="text" class="form-control" ng-model="host" placeholder="请输入要查询的主机IP"> -->
+<!--             </div> -->
+<!--             <label class="col-sm-1 control-label">接口名</label> -->
+<!--             <div class="col-sm-2 row"> -->
+<!--                 <input type="text" class="form-control" ng-model="interfaceName" placeholder="请输入要查询的接口名"> -->
+<!--             </div> -->
+<!--             <label class="col-sm-1 control-label">方法名</label> -->
+<!--             <div class="col-sm-2 row"> -->
+<!--                 <input type="text" class="form-control" ng-model="method" placeholder="请输入要查询的方法名"> -->
+<!--             </div> -->
+<!--             <label class="col-sm-1 control-label"></label> -->
+<!--             <button class="btn btn-primary" ng-click="search()">查询</button> -->
+        </div>
+    </form>
+</div>
+
+    <div>
+	    <div class="col-sm-2 row">
+	     	<button type="button" class="btn btn-primary" ng-click="cancel()">返回</button>
+	    </div>
+        <table class="table table-hover">
+            <thead>
+            <tr class="smallfont">
+                <th>序号</th>
+                <th>开始时间</th>
+                <th>结束时间</th>
+                <th>总计耗时(ms)</th>
+                <th>最大响应时间(ms)</th>
+                <th>最小响应时间(ms)</th>
+                <th>平均响应时间(ms)</th>
+                <th>成功请求数</th>
+                <th>失败请求数</th>
+                <th>QPS</th>
+                <th>执行人</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="result in resultList">
+                <th ng-bind="$index+1"></th>
+                <th ng-bind="result.startTime | date:'yyyy-MM-dd HH:mm:ss'"></th>
+                <th ng-bind="result.endTime | date:'yyyy-MM-dd HH:mm:ss'"></th>
+                <th ng-bind="result.sumTime"></th>
+                <th ng-bind="result.maxRequestTime"></th>
+                <th ng-bind="result.minRequestTime"></th>
+                <th ng-bind="result.avgRequestTime"></th>
+                <th ng-bind="result.successCount"></th>
+                <th ng-bind="result.failCount"></th>
+                <th ng-bind="result.qps"></th>
+                <th ng-bind="result.creator"></th>
+<!--                 <th ng-bind="testCase.creator"></th> -->
+<!--                 <th ng-bind="testCase.lastUpdater"></th> -->
+                <th>
+	                <a class="btn btn-success buttonfont" ng-click="report(result.id, result.sumTime, result.maxRequestTime, result.minRequestTime, result.avgRequestTime, result.successCount, result.failCount, result.qps)">查看测试报告</a>
+                </th>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="ui-pagination">
+        <uib-pagination boundary-links="true" first-text="首页" last-text="末页" previous-text="上一页" next-text="下一页" total-items="totalItems"
+                        ng-model="currentPage" max-size="10" items-per-page="pageSize"
+                        class="pagination-sm" boundary-link-numbers="true" rotate="false">
+        </uib-pagination>
+    </div>
+</div>

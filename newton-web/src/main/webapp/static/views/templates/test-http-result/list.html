@@ -1,0 +1,70 @@
+<div class="query-body">
+    <form class="form-horizontal">
+        <div class="form-group">
+            <div class="panel-heading">
+                运行结果（
+                <span style="margin-left:10px;" ng-model="interfaceName">请求url： {{url}}</span>
+                <span style="margin-left:10px;">|</span>
+                <span style="margin-left:10px;" ng-model="methodName">请求类型： {{requestType}}</span>
+                <span style="margin-left:10px;">|</span>
+                <span style="margin-left:10px;" ng-model="clientCount">客户端数量： {{clientCount}}</span>
+                <span style="margin-left:10px;">|</span>
+                <span style="margin-left:10px;" ng-model="messageCount">消息数量： {{messageCount}}</span>
+                ）
+            </div>
+        </div>
+    </form>
+</div>
+
+<div>
+    <div class="col-sm-2 row">
+        <button type="button" class="btn btn-primary" ng-click="cancel()">返回</button>
+    </div>
+    <table class="table table-hover">
+        <thead>
+        <tr class="smallfont">
+            <th>序号</th>
+            <th>开始时间</th>
+            <th>结束时间</th>
+            <th>总计耗时(ms)</th>
+            <th>最大响应时间(ms)</th>
+            <th>最小响应时间(ms)</th>
+            <th>平均响应时间(ms)</th>
+            <th>成功请求数</th>
+            <th>失败请求数</th>
+            <th>QPS</th>
+            <th>执行人</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="record in list">
+            <th ng-bind="$index+1"></th>
+            <th ng-bind="record.startTime | date:'yyyy-MM-dd HH:mm:ss'"></th>
+            <th ng-bind="record.endTime | date:'yyyy-MM-dd HH:mm:ss'"></th>
+            <th ng-bind="record.sumTime"></th>
+            <th ng-bind="record.maxRequestTime"></th>
+            <th ng-bind="record.minRequestTime"></th>
+            <th ng-bind="record.avgRequestTime"></th>
+            <th ng-bind="record.successCount"></th>
+            <th ng-bind="record.failCount"></th>
+            <th ng-bind="record.qps"></th>
+            <th ng-bind="record.creator"></th>
+            <!--                 <th ng-bind="testCase.lastUpdater"></th> -->
+            <th>
+                <a class="btn btn-success buttonfont"
+                   ng-click="report(record.id, record.sumTime, record.maxRequestTime, record.minRequestTime, record.avgRequestTime, record.successCount, record.failCount, record.qps)">查看测试报告</a>
+            </th>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="ui-pagination">
+    <uib-pagination boundary-links="true" first-text="首页" last-text="末页" previous-text="上一页" next-text="下一页"
+                    total-items="totalItems"
+                    ng-model="currentPage" max-size="10" items-per-page="pageSize"
+                    class="pagination-sm" boundary-link-numbers="true" rotate="false">
+    </uib-pagination>
+</div>
+</div>

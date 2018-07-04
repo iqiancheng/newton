@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xmlns="http://maven.apache.org/POM/4.0.0"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>newton</artifactId>
+	<groupId>com.qianworks</groupId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>newton</name>
+	<description>newton</description>
+	
+	<modules>
+		<module>newton-dao</module>
+		<module>newton-server</module>
+		<module>newton-web</module>
+	</modules>
+	
+	<properties>
+		<configcenter.interface.version>0.0.1</configcenter.interface.version>
+		<dubbo.version>2.8.18</dubbo.version>
+		<search.dao.version>0.0.2</search.dao.version>
+		<guava.version>19.0</guava.version>
+		<fastjson.version>1.2.47</fastjson.version>
+		<testng.version>6.11</testng.version>
+		<lombok.version>1.16.20</lombok.version>
+		<mybatis.pageHelper.version>4.1.0</mybatis.pageHelper.version>
+		<spring.version>4.3.18.RELEASE</spring.version>
+		<spring.boot.version>1.5.14.RELEASE</spring.boot.version>
+		<spring.boot.starter.version>1.2.7.RELEASE</spring.boot.starter.version>
+		<shiro.quartz.version>1.2.2</shiro.quartz.version>
+		<shiro.core.version>1.2.2</shiro.core.version>
+		<shiro.spring.version>1.2.4</shiro.spring.version>
+		<shiro.ehcache.version>1.2.4</shiro.ehcache.version>
+		<maven-surefire-plugin.version>2.19.1</maven-surefire-plugin.version>
+		<project.build.targetJDK>1.8</project.build.targetJDK>
+	</properties>
+
+	<dependencies>
+		<!-- spring boot -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<version>${spring.boot.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>slf4j-log4j12</artifactId>
+					<groupId>org.slf4j</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>spring-boot-starter</artifactId>
+					<groupId>org.springframework.boot</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-logging</artifactId>
+			<version>${spring.boot.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>log4j-over-slf4j</artifactId>
+					<groupId>org.slf4j</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+	</dependencies>
+
+</project>
