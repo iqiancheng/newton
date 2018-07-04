@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
  * @author <a href="i@qiancheng.me">千橙</a>
  */
 @Slf4j
-public class TestInterFaceDaoTest {
+public class TestUserDaoTest {
 
     @Test
     public void testInsert() {

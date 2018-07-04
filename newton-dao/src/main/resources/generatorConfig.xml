@@ -14,7 +14,7 @@
         </commentGenerator>
         <!--数据库链接URL，用户名、密码 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://127.0.0.1:3306/newton?characterEncoding=utf8"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/qianworks?characterEncoding=utf8"
                         userId="root" password="root@2018"/>
 
         <javaTypeResolver>
@@ -38,47 +38,20 @@
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 
-        <table tableName="t_test_case" domainObjectName="TestCase"
+        <table tableName="t_user" domainObjectName="User"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
             <columnRenamingRule searchString="^F" replaceString=""/>
         </table>
 
-        <table tableName="t_test_http_request" domainObjectName="TestHttpRequest"
+        <table tableName="t_soulsoup" domainObjectName="Soulsoup"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"
                selectByExampleQueryId="false">
             <columnRenamingRule searchString="^F" replaceString=""/>
         </table>
 
-        <table tableName="t_test_interface" domainObjectName="TestInterface"
-               enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false"
-               selectByExampleQueryId="false">
-            <columnRenamingRule searchString="^F" replaceString=""/>
-        </table>
-
-        <table tableName="t_test_submit" domainObjectName="TestSubmit"
-               enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false"
-               selectByExampleQueryId="false">
-            <columnRenamingRule searchString="^F" replaceString=""/>
-        </table>
-
-        <table tableName="t_report" domainObjectName="Report"
-               enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false"
-               selectByExampleQueryId="false">
-            <columnRenamingRule searchString="^F" replaceString=""/>
-        </table>
-
-        <table tableName="t_menu_privilege" domainObjectName="MenuPrivilege"
-               enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false"
-               selectByExampleQueryId="false">
-            <columnRenamingRule searchString="^F" replaceString=""/>
-        </table>
 
     </context>
 </generatorConfiguration>
